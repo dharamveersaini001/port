@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dharamveer Saini | Python & Django Developer</title>
+<meta name="description" content="Dharamveer Saini — Python, Django and Backend Developer portfolio.">
+<style>
+:root{
+  --bg:#070b14;
+  --bg2:#0b1020;
+  --card:rgba(16,24,40,.72);
+  --card2:rgba(20,30,52,.72);
+  --text:#f5f7ff;
+  --muted:#aab4c8;
+  --line:rgba(255,255,255,.09);
+  --accent:#67e8f9;
+  --accent2:#8b5cf6;
+  --accent3:#22c55e;
+  --shadow:0 24px 80px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(103,232,249,.12),transparent 30%),
+    radial-gradient(circle at 85% 20%,rgba(139,92,246,.14),transparent 32%),
+    linear-gradient(180deg,var(--bg),var(--bg2) 55%,#070a12);
+  color:var(--text);line-height:1.65;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin:auto}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(7,11,20,.7);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:.5px;font-size:1.05rem}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;color:#c9d2e3;font-size:.93rem}
+.nav-links a{transition:.25s}
+.nav-links a:hover{color:var(--accent)}
+.menu{display:none;background:none;border:0;color:white;font-size:1.5rem;cursor:pointer}
+.hero{min-height:100vh;display:grid;place-items:center;padding:120px 0 70px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:55px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border:1px solid rgba(103,232,249,.25);
+  background:rgba(103,232,249,.06);border-radius:999px;color:#c8f7ff;font-size:.86rem;margin-bottom:20px
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{transform:scale(1.5);opacity:.55}}
+.hero h1{font-size:clamp(2.8rem,7vw,5.7rem);line-height:1.02;letter-spacing:-3px;margin-bottom:15px}
+.gradient{background:linear-gradient(100deg,var(--accent),#b9a4ff 55%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h2{font-size:clamp(1.25rem,2.3vw,1.8rem);font-weight:600;color:#dce4f3;margin-bottom:20px}
+.hero p{max-width:680px;color:var(--muted);font-size:1.05rem}
+.buttons{display:flex;gap:13px;flex-wrap:wrap;margin:30px 0}
+.btn{padding:12px 19px;border-radius:12px;border:1px solid var(--line);font-weight:700;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#38bdf8);color:#031018;border:none}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(103,232,249,.14)}
+.quick{display:flex;gap:22px;flex-wrap:wrap;color:#8e9ab0;font-size:.9rem}
+.profile-card{
+  position:relative;padding:30px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(20,30,52,.85),rgba(10,15,28,.7));
+  border-radius:28px;box-shadow:var(--shadow);overflow:hidden
+}
+.profile-card:before{content:"";position:absolute;width:180px;height:180px;background:var(--accent2);filter:blur(80px);opacity:.18;top:-70px;right:-50px}
+.avatar{
+  width:110px;height:110px;border-radius:28px;display:grid;place-items:center;
+  font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,var(--accent2),var(--accent));
+  color:#07101b;margin-bottom:24px
+}
+.profile-card h3{font-size:1.5rem;margin-bottom:5px}.profile-card p{color:var(--muted)}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tag{font-size:.78rem;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.035);color:#dce4f3}
+section{padding:105px 0}
+.section-head{margin-bottom:40px}
+.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.section-head h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1.1;margin:8px 0 12px}
+.section-head p{color:var(--muted);max-width:700px}
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:22px;padding:27px;
+  box-shadow:0 15px 50px rgba(0,0,0,.18);transition:.3s
+}
+.card:hover{transform:translateY(-5px);border-color:rgba(103,232,249,.2)}
+.card p{color:var(--muted)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{padding:20px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+.stat strong{display:block;font-size:1.35rem;color:white}.stat span{color:#8e9ab0;font-size:.84rem}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-card h3{margin-bottom:7px}.skill-card p{font-size:.9rem}
+.skill-icon{font-size:1.5rem;margin-bottom:10px}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.project{position:relative;overflow:hidden}
+.project:after{content:"";position:absolute;inset:auto -40px -90px auto;width:160px;height:160px;background:var(--accent2);filter:blur(75px);opacity:.13}
+.project-top{display:flex;justify-content:space-between;gap:12px;margin-bottom:13px}
+.project h3{font-size:1.2rem}.status{font-size:.72rem;padding:5px 9px;border-radius:999px;background:rgba(34,197,94,.09);color:#86efac;border:1px solid rgba(34,197,94,.18);white-space:nowrap}
+.project p{font-size:.9rem;margin-bottom:15px}
+.project ul{padding-left:18px;color:#b8c2d4;font-size:.87rem;margin-bottom:18px}
+.project li{margin:4px 0}
+.tech{display:flex;flex-wrap:wrap;gap:7px}.tech span{font-size:.72rem;padding:5px 8px;border-radius:7px;background:#0d1526;border:1px solid var(--line);color:#cdd6e6}
+.timeline{position:relative;max-width:850px}.timeline:before{content:"";position:absolute;left:8px;top:4px;bottom:4px;width:1px;background:var(--line)}
+.timeline-item{position:relative;padding-left:36px;margin-bottom:28px}.timeline-item:before{content:"";position:absolute;left:3px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px rgba(103,232,249,.55)}
+.timeline-item h3{font-size:1.05rem}.timeline-item span{color:var(--accent);font-size:.82rem}.timeline-item p{color:var(--muted);font-size:.9rem;margin-top:4px}
+.contact{display:grid;grid-template-columns:1fr .8fr;gap:20px}
+.contact-list{display:grid;gap:12px;margin-top:20px}
+.contact-item{padding:15px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025);color:#cbd5e1}
+.contact-item b{display:block;color:white;margin-bottom:2px}
+footer{padding:35px 0;border-top:1px solid var(--line);color:#77849a;text-align:center;font-size:.85rem}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:none}
+.cursor{display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:5px;vertical-align:-2px;animation:blink .8s infinite}
+@keyframes blink{50%{opacity:0}}
+@media(max-width:850px){
+  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;padding:20px;background:rgba(7,11,20,.96);flex-direction:column;gap:16px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}.menu{display:block}
+  .hero-grid,.about-grid,.contact{grid-template-columns:1fr}.hero{padding-top:110px}
+  .profile-card{max-width:520px}.skills-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .hero h1{letter-spacing:-2px}.skills-grid,.project-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}
+  section{padding:75px 0}.card{padding:21px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">My Portfolio<span>.</span></a>
+    <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+      <a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="badge"><span class="dot"></span> Open to opportunities</div>
+      <h1>Hi, I'm <span class="gradient">Dharamveer.</span></h1>
+      <h2><span id="typing"></span><span class="cursor"></span></h2>
+      <p>
+        I build practical web applications with Python and Django, work with databases,
+        and enjoy turning problems into clean, reliable software.
+      </p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="#projects">View Projects ↗</a>
+        <a class="btn" href="#contact">Let's Connect</a>
+      </div>
+      <div class="quick">
+        <span>Python</span><span>Django</span><span>Backend</span><span>SQL</span><span>C++ & DSA</span>
+      </div>
+    </div>
+
+    <div class="profile-card reveal">
+      <div class="avatar">DS</div>
+      <h3>Python • Django • Backend</h3>
+      <p>Focused on backend development, databases, problem solving and building real-world applications.</p>
+      <div class="stack">
+        <span class="tag">Python</span><span class="tag">Django</span><span class="tag">SQL</span>
+        <span class="tag">DBMS</span><span class="tag">C++</span><span class="tag">DSA</span>
+        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+        <span class="tag">PHP</span><span class="tag">Laravel</span>
+        <span class="tag">SSAD(system analysis,design and testing)</span>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">About me</div><h2>Building skills that solve real problems.</h2>
+      <p>A focused developer profile built around Python, Django, backend systems, databases and problem solving.</p>
+    </div>
+    <div class="about-grid">
+      <div class="card reveal">
+        <p>
+          I'm currently pursuing a BCA from IGNOU and developing my skills in software and backend development.
+          My main focus is Python and Django, supported by SQL, DBMS, C++ and DSA.
+          I like learning by building projects instead of only studying theory.
+        </p>
+        <br>
+        <p>
+          My goal is to grow into a strong software/backend developer who can design APIs,
+          work with databases, write maintainable code and build production-ready applications.
+        </p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><strong>BCA</strong><span>IGNOU</span></div>
+        <div class="stat"><strong>Python</strong><span>Primary language</span></div>
+        <div class="stat"><strong>Django</strong><span>Backend framework</span></div>
+        <div class="stat"><strong>C++</strong><span>DSA & problem solving</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">Technical skills</div><h2>What I work with.</h2>
+      <p>Strong foundation in Python, Django, backend development and DBMS, with practical exposure to APIs, C++/DSA, SSAD and Hadoop.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="card skill-card reveal"><div class="skill-icon">🐍</div><h3>Python</h3><p>Core Python, OOP, file handling, database connectivity and application development.</p></div>
+      <div class="card skill-card reveal"><div class="skill-icon">⚙️</div><h3>Django</h3><p>Models, forms, authentication, CRUD, templates, FBV/CBV and database-backed applications.</p></div>
+      <div class="card skill-card reveal"><div class="skill-icon">🗄️</div><h3>DBMS & SQL</h3><p>Strong working knowledge of relational databases, SQL queries, joins, subqueries, normalization, keys, constraints, CRUD operations and database design.</p></div>
+      <div class="card skill-card reveal"><div class="skill-icon">💻</div><h3>C++ & DSA</h3><p>Arrays, strings, searching, sorting, vectors and problem-solving fundamentals.</p></div>
+      <div class="card skill-card reveal"><div class="skill-icon">🌐</div><h3>Web Development</h3><p>HTML, CSS, JavaScript and responsive frontend development.</p></div>
+      <div class="card skill-card reveal"><div class="skill-icon">🧩</div><h3>SSAD & System Design</h3><p>Software system analysis and design fundamentals, requirement understanding, modelling and structured application design.</p></div>
+<div class="card skill-card reveal"><div class="skill-icon">📊</div><h3>Hadoop & Big Data</h3><p>Working exposure to Hadoop ecosystem concepts, distributed data processing and big-data fundamentals.</p></div>
+<div class="card skill-card reveal"><div class="skill-icon">🔧</div><h3>PHP & Laravel</h3><p>Backend fundamentals and MVC-based web application development.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">Selected projects</div><h2>Projects that show how I think.</h2>
+      <p>A project-focused snapshot of backend development, API integration, database design, Python application logic and C++ problem solving.</p>
+    </div>
+    <div class="project-grid">
+      <article class="card project reveal">
+        <div class="project-top"><h3>Task Manager</h3><span class="status">Completed</span></div>
+        <p>A Django task management application focused on authentication and CRUD workflows.</p>
+        <ul><li>User registration and login</li><li>Create, edit and delete tasks</li><li>Forms, templates and database operations</li></ul>
+        <div class="tech"><span>Django</span><span>Python</span><span>SQLite</span><span>HTML/CSS</span></div>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-top"><h3>Blog Management System</h3><span class="status">Completed</span></div>
+        <p>A Django blog application demonstrating models, relationships, templates, ORM and content management.</p>
+        <ul><li>Blog post model with author relationship</li><li>Database-backed post listing</li><li>Admin-driven content management</li></ul>
+        <div class="tech"><span>Django</span><span>Python</span><span>ORM</span><span>HTML/CSS</span></div>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-top"><h3>REST API & JSON Integration</h3><span class="status">API Project</span></div>
+        <p>Backend-focused API work demonstrating how applications exchange structured JSON data through HTTP endpoints.</p>
+        <ul><li>GET/POST request-response flow</li><li>JSON data handling and API consumption</li><li>Endpoint-based backend architecture</li></ul>
+        <div class="tech"><span>Python</span><span>Django</span><span>REST API</span><span>JSON</span></div>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-top"><h3>Weather API Application</h3><span class="status">API Project</span></div>
+        <p>A practical API-based application that connects a backend to external weather data and presents useful results to users.</p>
+        <ul><li>External API integration</li><li>HTTP requests and JSON parsing</li><li>Dynamic city-based weather information</li></ul>
+        <div class="tech"><span>Python</span><span>Django</span><span>API</span><span>JSON</span></div>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-top"><h3>Advanced ATM Management System</h3><span class="status">Python Project</span></div>
+        <p>A stronger Python project demonstrating application logic, validation, account operations and transaction-oriented thinking.</p>
+        <ul><li>PIN authentication and account operations</li><li>Deposit, withdrawal and balance validation</li><li>Transaction history and error handling</li></ul>
+        <div class="tech"><span>Python</span><span>OOP</span><span>DBMS</span><span>SQL</span></div>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-top"><h3>Employee Payroll & Attendance System</h3><span class="status">DBMS Project</span></div>
+        <p>A database-focused system combining employee records, attendance and salary processing to demonstrate practical DBMS knowledge.</p>
+        <ul><li>Employee and attendance management</li><li>Salary, incentive and deduction calculation</li><li>Relational schema, keys, joins and SQL queries</li></ul>
+        <div class="tech"><span>DBMS</span><span>SQL</span><span>ER Model</span><span>Python</span></div>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-top"><h3>DSA Problem Solving in C++</h3><span class="status">Ongoing</span></div>
+        <p>A growing collection of C++ solutions focused on algorithmic thinking and efficient problem solving.</p>
+        <ul><li>Arrays, strings and vectors</li><li>Searching, sorting and binary search</li><li>Two pointers and sliding-window patterns</li></ul>
+        <div class="tech"><span>C++</span><span>STL</span><span>DSA</span><span>Problem Solving</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">Education & learning</div><h2>Growing through structured learning.</h2></div>
+    <div class="card timeline reveal">
+      <div class="timeline-item"><span>2025 — Present</span><h3>Bachelor of Computer Applications (BCA) — IGNOU</h3><p>Building foundations in computer applications, programming, databases and software development.</p></div>
+      <div class="timeline-item"><span>2025 — 2026</span><h3>MDCE / IT Skills Training</h3><p>Practical learning across Python, DBMS/SQL, PHP, HTML, CSS, JavaScript, IoT and related development technologies.</p></div>
+      <div class="timeline-item"><span>Academic</span><h3>UP Board — Class 12: 79% | Class 10: 86%</h3><p>Academic foundation supporting the transition into computer applications and software development.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">Contact</div><h2>Let's build something useful.</h2>
+      <p>I'm interested in software, backend and Python/Django development opportunities.</p>
+    </div>
+    <div class="contact">
+      <div class="card reveal">
+        <h3>Have a role, project or opportunity?</h3>
+        <p style="margin-top:8px">Feel free to connect. Add your real contact details below before publishing this portfolio.</p>
+        <div class="contact-list">
+         <a href="mailto:sainidharamveer787@gmail.com?subject=Portfolio%20Contact"> <div class="contact-item"><b>Email</b>sainidharamveer787@gmail.com</div></a>
+          <a href="https://github.com/dharamveer123" target="_blank"><div class="contact-item"><b>GitHub</b>github.com/dharamveersaini001</div></a>
+          <a href="https://www.linkedin.com/in/dharamveer-saini/" target="_blank"><div class="contact-item"><b>LinkedIn</b>www.linkedin.com/in/dharamveer-saini-3771443a7</div></a>
+        </div>
+      </div>
+      <div class="card reveal">
+        <h3>Career Focus</h3>
+        <p style="margin-top:8px">Python Developer • Django Backend Developer • Software Developer</p>
+        <div class="stack" style="margin-top:22px">
+         </a><span class="tag">Backend Development</span><span class="tag">REST APIs</span>
+          <span class="tag">Databases</span><span class="tag">Problem Solving</span>
+          <span class="tag">Clean Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">© 2026 Dharamveer Saini · Built with HTML, CSS & JavaScript</div>
+</footer>
+
+<script>
+const roles = ["Python Developer","Django Backend Developer","Software Developer"];
+const typing = document.getElementById("typing");
+let role=0, char=0, deleting=false;
+
+function typeEffect(){
+  const text=roles[role];
+  typing.textContent=deleting ? text.slice(0,char--) : text.slice(0,char++);
+  let speed=deleting ? 45 : 85;
+  if(!deleting && char > text.length){deleting=true;speed=1300}
+  else if(deleting && char < 0){deleting=false;role=(role+1)%roles.length;char=0;speed=350}
+  setTimeout(typeEffect,speed);
+}
+typeEffect();
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")});
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+menuBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>navLinks.classList.remove("open")));
+</script>
+</body>
+</html>
